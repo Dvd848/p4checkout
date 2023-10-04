@@ -16,6 +16,8 @@ import re
 
 import P4
 
+VERSION = "0.1.0"
+
 ChangeList = namedtuple("ChangeList", "id description")
 
 class PerforceCheckout:
