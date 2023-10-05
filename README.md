@@ -10,19 +10,19 @@ files before editing them.
 
 ## Screenshots
 
-![](images/img1.png)
+![](https://github.com/Dvd848/p4checkout/raw/main/images/img1.png)
 
-![](images/img2.png)
+![](https://github.com/Dvd848/p4checkout/raw/main/images/img2.png)
 
-![](images/img3.png)
+![](https://github.com/Dvd848/p4checkout/raw/main/images/img3.png)
 
-![](images/img4.png)
+![](https://github.com/Dvd848/p4checkout/raw/main/images/img4.png)
 
-![](images/img5.png)
+![](https://github.com/Dvd848/p4checkout/raw/main/images/img5.png)
 
 For reference, the official pop-up box from `p4v`:
 
-![](images/p4v.png)
+![](https://github.com/Dvd848/p4checkout/raw/main/images/p4v.png)
 
 ## Usage
 
