@@ -421,6 +421,9 @@ def main():
 
     parser.add_argument("path", help="Path to file to check out")
 
+    parser.add_argument('--version', action='version',
+                    version='%(prog)s {version}'.format(version=VERSION))
+
     parser.add_argument("-v", "--verbose", action="count", default=0, help="Verbosity (-v, -vv, etc.)")
 
     parser.add_argument("-p", "--port", action="store", help="P4 port (e.g. 'ssl:localhost:1666')")

@@ -28,13 +28,14 @@ For reference, the official pop-up box from `p4v`:
 
 ```console
 $ p4checkout -h
-usage: p4checkout [-h] [-v] [-p PORT] [-c CLIENT] [-s HOST] [-u USER] path
+usage: p4checkout.py [-h] [--version] [-v] [-p PORT] [-c CLIENT] [-s HOST] [-u USER] path
 
 positional arguments:
   path                  Path to file to check out
 
 options:
   -h, --help            show this help message and exit
+  --version             show program's version number and exit
   -v, --verbose         Verbosity (-v, -vv, etc.)
   -p PORT, --port PORT  P4 port (e.g. 'ssl:localhost:1666')
   -c CLIENT, --client CLIENT
