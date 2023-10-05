@@ -181,6 +181,7 @@ class PerforceCheckoutGui:
         self.root = tk.Tk()
         self.root.title("Select Pending Changelist")
         self.root.geometry("320x300")
+        self.root.iconbitmap(Path(__file__).parent / "icon.ico")
         #self.root.attributes('-toolwindow', True)
 
         self.main_frame = tk.Frame(self.root)
