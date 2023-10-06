@@ -35,6 +35,7 @@ from collections import namedtuple
 from pathlib import Path
 from tkinter import ttk, messagebox
 
+import importlib.resources
 import tkinter as tk
 import threading
 import traceback
@@ -212,7 +213,7 @@ class PerforceCheckoutGui:
         self.root = tk.Tk()
         self.root.title("Select Pending Changelist")
         self.root.geometry("320x300")
-        self.root.iconbitmap(Path(__file__).parent / "icon.ico")
+        self.load_icon()
         #self.root.attributes('-toolwindow', True)
 
         self.main_frame = tk.Frame(self.root)
@@ -257,6 +258,42 @@ class PerforceCheckoutGui:
         self.root.minsize(self.root.winfo_width(), self.root.winfo_height())
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+
+    def load_icon(self) -> None:
+        try:
+            self.root.iconbitmap(Path(__file__).parent / "icon.ico")
+            self.logger.debug("Loaded icon as iconbitmap using path")
+            return
+        except Exception:
+            pass
+
+        try:
+            icon = tk.PhotoImage(file = Path(__file__).parent / "icon.gif")
+            self.root.call('wm', 'iconphoto', self.root._w, icon)
+            self.logger.debug("Loaded icon as iconphoto using path")
+            return
+        except Exception:
+            pass
+
+        try:
+            with importlib.resources.path(f"{__package__}", "icon.ico") as icon_path:
+                self.root.iconbitmap(default = icon_path)
+                self.logger.debug("Loaded icon as iconbitmap using importlib")
+                return
+        except Exception:
+            pass
+
+        try:
+            with importlib.resources.path(f"{__package__}", "icon.gif") as icon_path:
+                icon = tk.PhotoImage(file = icon_path)
+                self.root.call('wm', 'iconphoto', self.root._w, icon)
+                self.logger.debug("Loaded icon as iconphoto using importlib")
+                return
+        except Exception:
+            pass
+    
+        self.logger.debug("Could not load icon")
+        # No icon for you
 
     def handle_worker_results(self) -> None:
         timeout = 100
@@ -436,7 +473,7 @@ def main():
     logging.basicConfig(level={0: logging.CRITICAL, 
                                1: logging.ERROR, 
                                2: logging.INFO, 
-                               3: logging.DEBUG}.get(args.verbose, logging.CRITICAL),
+                               3: logging.DEBUG}.get(args.verbose, logging.DEBUG),
                         format='%(name)-12s %(levelname)-8s %(message)s',)    
 
     try:

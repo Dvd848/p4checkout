@@ -28,7 +28,7 @@ For reference, the official pop-up box from `p4v`:
 
 ```console
 $ p4checkout -h
-usage: p4checkout.py [-h] [--version] [-v] [-p PORT] [-c CLIENT] [-s HOST] [-u USER] path
+usage: p4checkout [-h] [--version] [-v] [-p PORT] [-c CLIENT] [-s HOST] [-u USER] path
 
 positional arguments:
   path                  Path to file to check out
