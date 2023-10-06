@@ -3,8 +3,8 @@
 
 `p4checkout` acts as a standalone GUI utility offering Perforce users the ability to check out 
 a file to a specific pending changelist. 
-While this ability is available out of the box by directly using the official Perforce visual 
-client (`p4v`), it's convenient to integrate it into the user's IDE. Most popular IDEs have 
+While this ability is available out of the box by directly using the official Perforce Visual 
+Client (`p4v`), it's convenient to integrate it into the user's IDE. Most popular IDEs have 
 an official Perforce plugin, but those that don't can use `p4checkout` to easily check out 
 files before editing them.
 
@@ -24,7 +24,17 @@ For reference, the official pop-up box from `p4v`:
 
 ![](https://github.com/Dvd848/p4checkout/raw/main/images/p4v.png)
 
-## Usage
+## Installation and Usage
+
+`p4checkout` can be installed via [pypi](https://pypi.org/project/p4checkout/):
+
+```console
+pip install p4checkout
+```
+
+Alternately, clone this repository and call `p4checkout/p4checkout.py`.
+
+Usage:
 
 ```console
 $ p4checkout -h
@@ -66,7 +76,8 @@ Here are a few examples:
 ## Background
 
 I originally developed this utility around 2013. The original version was written in C# and 
-was used for integration with [Source Insight](https://www.sourceinsight.com/). 
+was used for integration with [Source Insight](https://www.sourceinsight.com/). It can be found
+[here](https://gist.github.com/Dvd848/d62550b02be0e939933ca24919c68a62) for preservation purposes.
 The code in this repository is a recent Python port (2023) inspired by the original C# code.
 However, as I (unfortunately) don't work on any Perforce-based projects anymore, it was only tested on a 
 non-production basic home-setup created for this purpose only.  
